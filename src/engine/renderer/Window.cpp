@@ -4,7 +4,7 @@
 namespace engine::renderer {
 	bool Window::create(uint32_t width, uint32_t height, const char *title) {
 		if (!glfwInit()) return false;
-		glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+		glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 		m_window = glfwCreateWindow(width, height, title, nullptr, nullptr);
 		return m_window != nullptr;
 	}
