@@ -1,12 +1,12 @@
 set(ENGINE_SRC
-	engine.hpp
-	engine.cpp
-	debug/debug.hpp
-	debug/debug.cpp
-	debug/debug_init.cpp
+	Engine.hpp
+	Engine.cpp
+	debug/Debug.hpp
+	debug/Debug.cpp
 )
 
-add_library(engine STATIC ${ENGINE_SRC} "debug/debug_init.cpp")
+# Libraries
+add_library(engine STATIC ${ENGINE_SRC})
 target_include_directories(engine PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 target_link_libraries(engine
 	PUBLIC
@@ -17,6 +17,7 @@ target_link_libraries(engine
 	Vulkan::Vulkan
 )
 
+# Platform-specific Vulkan
 if(WIN32)
 	target_compile_definitions(engine PRIVATE VK_USE_PLATFORM_WIN32_KHR)
 elseif(APPLE)

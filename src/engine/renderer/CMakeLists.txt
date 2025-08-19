@@ -1,6 +1,9 @@
 set(RENDERER_SRC
-    renderer.cpp
-    renderer.hpp
+	Window.cpp
+	Window.hpp
+	IRenderer.hpp
+	vulkan/VulkanRenderer.cpp
+	vulkan/VulkanRenderer.hpp
 )
 
 add_library(renderer STATIC ${RENDERER_SRC})
